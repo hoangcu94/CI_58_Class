@@ -1,0 +1,17 @@
+.d-flex {
+    display: flex;
+}
+.centering {
+    justify-content: center;
+    align-items: center;
+}
+.f-column {
+    flex-direction: column;
+}
+.error {
+    color: rgb(230, 26, 26);
+    font-size: 14px;
+}
+.decoration {
+    text-decoration: none;
+}
