@@ -96,7 +96,7 @@ class Register {
 
     initRender = (container) => {
         const flexContainer = document.createElement(`div`);
-        flexContainer.classList.add("d-flex", "centering", "f-column", "item");
+        flexContainer.classList.add("d-flex", "centering", "f-column");
         const title = document.createElement("h1");
         title.innerHTML = `Creat your account`;
 

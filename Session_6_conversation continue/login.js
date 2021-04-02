@@ -54,7 +54,7 @@ class Login {
         flexContainer.appendChild(this.$btnLogin);
 
         const linkToRegister = document.createElement(`a`);
-        linkToRegister.innerHTML = "Create an account";
+        linkToRegister.innerHTML = "Go to Register...";
         linkToRegister.href = "#";
         linkToRegister.classList.add("decoration");
         linkToRegister.addEventListener(`click`, this.gotoRegister);
