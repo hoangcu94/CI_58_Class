@@ -1,9 +1,15 @@
 import ConversationList from "./Main/ConversationList.js";
 import Title from "./Main/title.js";
+import Composer from "./Main/composer.js";
+import MessageList from "./Main/messageList.js";
+import ConversationInfo from "./Main/conversationInfo.js";
 
 class Main {
     conversationList;
     title;
+    composer;
+    messageList;
+    conversationInfo;
 
     activeConversation;
 
@@ -12,6 +18,9 @@ class Main {
             this.setActiveConversation(conversation);
         });
         this.title = new Title("", 0);
+        this.composer = new Composer();
+        this.messageList = new MessageList();
+        this.conversationInfo = new ConversationInfo();
     }
 
     setActiveConversation = (conversation) => {
@@ -20,6 +29,8 @@ class Main {
 
         this.conversationList.setActiveConversation(conversation);
         this.title.setActiveConversation(conversation);
+        this.composer.setActiveConversation(conversation);
+        this.messageList.setActiveConversation(conversation);
     }
 
     initRender = (container) => {
@@ -43,36 +54,16 @@ class Main {
         const div2 = document.createElement("div");
         div2.classList.add("item","d-flex","grow-1");
 
-        const conversationInfo = document.createElement("div");
-        conversationInfo.style.width = "200px";
         const div3 =document.createElement("div");
         div3.classList.add("grow-1", "item", "d-flex", "f-column");
 
-        const messageList = document.createElement("div");
-        messageList.classList.add("grow-1", "item");
-
-        const composer = document.createElement("div");
-        composer.style.height = "40px";
-        composer.classList.add("d-flex");
-        const inputChat = document.createElement("input");
-        inputChat.type = "text";
-        inputChat.placeholder = "Enter something...";  
-        
-        inputChat.classList.add("grow-1", "border-radius", "margin");       
-        const btnSubmit = document.createElement("button");
-        btnSubmit.type = "submit";
-        btnSubmit.innerHTML = "Send";
-        btnSubmit.style.width = "75px";
-        btnSubmit.classList.add("margin", "border-radius");
-
-        composer.appendChild(inputChat);
-        composer.appendChild(btnSubmit);
 
         content.appendChild(div2);
         div2.appendChild(div3);
-        div2.appendChild(conversationInfo);
-        div3.appendChild(messageList);
-        div3.appendChild(composer)
+        
+        this.conversationInfo.initRender(div2);
+        this.messageList.initRender(div3);
+        this.composer.initRender(div3);
 
         div.appendChild(content);
         container.appendChild(btnLogout);

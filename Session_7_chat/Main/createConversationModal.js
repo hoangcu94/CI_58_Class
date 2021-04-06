@@ -29,7 +29,7 @@ class CreateConversationModal {
         this.$btnClose.type = "button";
         this.$btnClose.innerHTML = "Close";
         this.$btnClose.addEventListener('click', () => {
-            this.setVisible(false);
+            this.setVisibe(false);
         });
 
     }
@@ -41,17 +41,17 @@ class CreateConversationModal {
         console.log(name, authUser);
 
         db.collection("conversation")
-            .add ({
-                name: name,
-                creator:authUser.email,
-                users: [authUser.email],
-            })
-            .then(() => {
-                this.setVisible(false);
-            })
+        .add ({
+            name: name,
+            creator:authUser.email,
+            users: [authUser.email],
+        })
+        .then(() => {
+            this.setVisibe(false);
+        })
     };
 
-    setVisible = (value) => {
+    setVisibe = (value) => {
         if(value) {
             this.$backdrop.style.display = "flex";
         } else {

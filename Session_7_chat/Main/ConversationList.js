@@ -4,7 +4,6 @@ import Conversation from "./conversation.js";
 class ConversationList {
     $btnCreateConversation;
     $conversationListContainer;
-    
     createConversationModal;
 
     conversationList;
@@ -25,9 +24,9 @@ class ConversationList {
     };
     
     setUpConversationListener = () => {
-        db.collection("conversations").onSnapshot((snapshot) => {
+        db.collection('conversation').onSnapshot((snapshot) => {
             snapshot.docChanges().forEach((change) => {
-                console.log(change.doc.data());
+                // console.log(change.doc.data());
                 const conversation = new Conversation(
                     change.doc.id, 
                     change.doc.data().name, 
@@ -45,7 +44,7 @@ class ConversationList {
     }
 
     openCreateModal = () => {
-        this.createConversationModal.setVisible(true);
+        this.createConversationModal.setVisibe(true);
     };
 
     setActiveConversation = (conversation) => {

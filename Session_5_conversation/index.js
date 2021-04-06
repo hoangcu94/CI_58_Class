@@ -1,7 +1,6 @@
 import Login from "./login.js";
 import Main from "./main.js";
 
-
 class App {
     acctiveScreen;
     container;

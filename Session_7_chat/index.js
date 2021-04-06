@@ -14,7 +14,7 @@ class App {
         firebase
             .auth()
             .onAuthStateChanged((user) => {
-                // console.log(user);
+            // console.log(user);
                 if(user && user.emailVerified) {
                     const main = new Main();
                     this.changeActiveScreen(main);
@@ -28,12 +28,12 @@ class App {
     changeActiveScreen(screen) {
         if (this.activeScreen) {
             this.container.innerHTML ="";
-        }
+        } 
         this.activeScreen = screen;
-        this.activeScreen.initRender(this.container);        
+        this.activeScreen.initRender(this.container);
     };
-};
-
+    
+}
 const container = document.getElementById(`app`);
 
 const login = new Login();

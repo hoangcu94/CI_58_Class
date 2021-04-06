@@ -12,7 +12,7 @@ class Main {
         div.classList.add(`d-flex`, `item`);
         div.style.height = `100vh`;
 
-        const content =document.createElement(`div`);
+        const content = document.createElement(`div`);
         content.classList.add(`grow-1`,`item`);
         content.innerHTML = "content";
 
