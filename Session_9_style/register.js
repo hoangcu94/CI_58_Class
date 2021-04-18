@@ -14,18 +14,22 @@ class Register {
         this.$txtEmail = document.createElement(`input`);
         this.$txtEmail.placeholder = `Enter your email...`;
         this.$txtEmail.type = "email";
+        this.$txtEmail.classList.add("form-input", "m-b-sm");
 
         this.$txtUserName = document.createElement(`input`);
         this.$txtUserName.type = "text";
-        this.$txtUserName.placeholder = "enter your Username...";
+        this.$txtUserName.placeholder = "Enter your Username...";
+        this.$txtUserName.classList.add("form-input", "m-b-sm");
 
         this.$txtPassword = document.createElement(`input`);
         this.$txtPassword.placeholder = "Enter password...";
         this.$txtPassword.type = "password";
+        this.$txtPassword.classList.add("form-input", "m-b-sm");
 
         this.$txtConfirmPassword = document.createElement(`input`);
         this.$txtConfirmPassword.type = "password";
-        this.$txtConfirmPassword.placeholder = "confirm password...";
+        this.$txtConfirmPassword.placeholder = "Confirm password...";
+        this.$txtConfirmPassword.classList.add("form-input","m-b-md");
 
         this.$formRegister = document.createElement(`form`);
         this.$formRegister.addEventListener(`submit`, this.handleSubmit);
@@ -33,6 +37,7 @@ class Register {
         this.$btnSubmit = document.createElement(`button`);
         this.$btnSubmit.innerHTML = `Register`;
         this.$btnSubmit.type = `submit`;
+        this.$btnSubmit.classList.add("form-button","m-b-sm", "btn", "btn-primary");
 
         this.$errorMessage = document.createElement(`p`);
         this.$errorMessage.classList.add(`error`);
@@ -87,7 +92,7 @@ class Register {
         } else {
             this.$errorMessage.style.display = "none";
         }
-    };
+    }
 
     goToLogin = () => {
         const login = new Login();
@@ -96,7 +101,7 @@ class Register {
 
     initRender = (container) => {
         const flexContainer = document.createElement(`div`);
-        flexContainer.classList.add("d-flex", "centering", "f-column", "item");
+        flexContainer.classList.add("d-flex", "centering", "f-column", "vh-100", "vw-100");
         const title = document.createElement("h1");
         title.innerHTML = `Creat your account`;
 

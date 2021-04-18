@@ -1,10 +1,10 @@
 import Login from "./login.js";
 import Main from "./main.js";
 
+
 class App {
-    acctiveScreen;
+    activeScreen;
     container;
-    
     constructor(container) {
         this.container = container;
         this.setUpFirebaseAuthListener();
@@ -12,26 +12,26 @@ class App {
     
     setUpFirebaseAuthListener = () => {
         firebase
-        .auth()
-        .onAuthStateChanged((user) => {
+            .auth()
+            .onAuthStateChanged((user) => {
             // console.log(user);
-            if(user && user.emailVerified) {
-                const main = new Main();
-                this.changeActiveScreen(main);
-            } else {
-                const login = new Login();
-                this.changeActiveScreen(login);
-            }
-        });
+                if(user && user.emailVerified) {
+                    const main = new Main();
+                    this.changeActiveScreen(main);
+                } else {
+                    const login = new Login();
+                    this.changeActiveScreen(login);
+                }
+            });
     };
     
     changeActiveScreen(screen) {
-        if (this.acctiveScreen) {
+        if (this.activeScreen) {
             this.container.innerHTML ="";
-        }
-        this.acctiveScreen = screen;
-        this.acctiveScreen.initRender(this.container);
-    }
+        } 
+        this.activeScreen = screen;
+        this.activeScreen.initRender(this.container);
+    };
     
 }
 const container = document.getElementById(`app`);

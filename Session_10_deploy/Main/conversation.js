@@ -13,11 +13,14 @@ class Conversation {
         this.name = name;
         this.users = users;
         
-        this.$txtName = document.createElement("p");
+        this.$txtName = document.createElement("div");
         this.$txtName.innerHTML = name;
+        this.$txtName.classList.add("name");
 
         this.$txtNoOfUsers = document.createElement("small");
         this.$txtNoOfUsers.innerHTML = users.length + " user(s)";
+        this.$txtNoOfUsers.classList.add("user-count")
+
         this.$container = document.createElement("div");
         this.$container.classList.add("conversation-item");
 
@@ -30,7 +33,14 @@ class Conversation {
         } else {
             this.$container.classList.remove("active");
         }
-    }
+    };
+
+    updateData = (newData) => {
+        this.name = newData.name;
+        this.users = newData.users;
+        this.$txtNoOfUsers.innerHTML = this.users.length + " user(s)";
+        this.onClick(this);
+    };
 
     initRender = (container) => {
         this.$container.addEventListener("click", () => {
@@ -39,7 +49,7 @@ class Conversation {
         this.$container.appendChild(this.$txtName);
         this.$container.appendChild(this.$txtNoOfUsers);
         container.appendChild(this.$container);
-    }
-}
+    };
+};
 
 export default Conversation;

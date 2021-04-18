@@ -30,7 +30,15 @@ class Conversation {
         } else {
             this.$container.classList.remove("active");
         }
-    }
+    };
+
+    updateData = (newData) => {
+        this.name = newData.name;
+        this.users = newData.users;
+        this.$txtNoOfUsers.innerHTML = this.users.length + " user(s)";
+        this.onClick(this);
+        console.log(newData);
+    };
 
     initRender = (container) => {
         this.$container.addEventListener("click", () => {
@@ -39,7 +47,7 @@ class Conversation {
         this.$container.appendChild(this.$txtName);
         this.$container.appendChild(this.$txtNoOfUsers);
         container.appendChild(this.$container);
-    }
-}
+    };
+};
 
 export default Conversation;
